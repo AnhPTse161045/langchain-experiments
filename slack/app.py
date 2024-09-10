@@ -23,6 +23,7 @@ app = App(token=SLACK_BOT_TOKEN)
 flask_app = Flask(__name__)
 handler = SlackRequestHandler(app)
 
+<<<<<<< HEAD
 
 signature_verifier = SignatureVerifier(SLACK_SIGNING_SECRET)
 
@@ -52,6 +53,8 @@ def verify_slack_request():
         timestamp=timestamp,
         signature=signature,
     )
+=======
+>>>>>>> parent of 0179d6d (DEMO)
 
 def get_bot_user_id():
     """
@@ -123,5 +126,9 @@ def slack_events():
 
 # Run the Flask app
 if __name__ == "__main__":
+<<<<<<< HEAD
     logging.info("Flask app startted")
    flask_app.run(host="0.0.0.0", port=8000)
+=======
+    flask_app.run()
+>>>>>>> parent of 0179d6d (DEMO)

@@ -58,23 +58,16 @@ jobs:
         with:
           name: python-app
 
-          
+      - name: Unzip artifact for deployment
+        run: unzip release.zip
 
-      -   name: Log in to Azure CLI using service principal
-          uses: azure/login@v1
-          with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
       
-
       - name: Login to Azure
         uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_187BBA48EDA040459224BB45343AA1D8 }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_8AB569E471E84EFEA3B2EE444CC423BE }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_991B7EBA47114355A54FF23318FF71A1 }}
-
-
-          
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
